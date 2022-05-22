@@ -11,18 +11,54 @@
 <body>
     <h1>Student Grades</h1>
 
-    <table>
+
+    <p>
+        <a href="/grades/add">Add a student's grades</a>
+    </p>
+
+    <table border="1" cellpadding="10">
         <thead>
             <tr>
-                <th></th>
+                <th>Student</th>
+                <th>Class</th>
+                <th>Term 1 Grade</th>
+                <th>Term 2 Grade</th>
+                <th>Term 3 Grade</th>
+                <th>Average</th>
+                <th>Actions</th>
             </tr>
         </thead>
 
         <tbody>
-            <% grades.forEach(function(grade) { %>
+            <% grades.forEach(function(data) { %>
                 <tr>
                     <td>
-                        <%= grade.id %>
+                        <%= data.first_name + ' ' + data.last_name %>
+                    </td>
+                    <td>
+                        <%= data.class %>
+                    </td>
+                    <td>
+                        <%= data.term1_grade %>
+                    </td>
+                    <td>
+                        <%= data.term2_grade %>
+                    </td>
+                    <td>
+                        <%= data.term3_grade %>
+                    </td>
+                    <td>
+                        <%= data.average %>
+                    </td>
+
+                    <td>
+                        <button>
+                            <a href="/grades/edit/<%= data.id %>">Edit</a>
+                        </button>
+
+                        <button>
+                            <a href="/grades/delete/<%= data.id %>">Delete</a>
+                        </button>
                     </td>
                 </tr>
                 <% }) %>

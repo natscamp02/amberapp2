@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grades - Add</title>
+</head>
+
+<body>
+    <h1>Add student grades</h1>
+
+    <form action="/grades/add" method="post">
+        <div>
+            <label for="student_id">Student</label>
+            <select name="student_id" id="student_id" required>
+                <option value="" selected disabled hidden>-- Select a student --</option>
+                <% students.forEach((student)=> { %>
+                    <option value="<%= student.id %>">
+                        <%= student.first_name + ' ' + student.last_name %> (Class <%= student.class %>)
+                    </option>
+                    <% }) %>
+            </select>
+
+            <a href="/students/add">Cannot find students? Try adding one.</a>
+        </div>
+        <br>
+
+        <div>
+            <label for="term1_grade">Term 1 Grade</label>
+            <input type="number" name="term1_grade" id="term1_grade" min="0" max="100">
+        </div>
+        <br>
+
+        <div>
+            <label for="term2_grade">Term 2 Grade</label>
+            <input type="number" name="term2_grade" id="term2_grade" min="0" max="100">
+        </div>
+        <br>
+
+        <div>
+            <label for="term3_grade">Term 3 Grade</label>
+            <input type="number" name="term3_grade" id="term3_grade" min="0" max="100">
+        </div>
+        <br>
+
+        <button type="submit">Add</button>
+        <a href="/grades/list">
+            <button type="button">
+                Cancel
+            </button>
+        </a>
+    </form>
+</body>
+
+</html>

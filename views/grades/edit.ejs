@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grades - Update</title>
+</head>
+
+<body>
+    <h1>Edit a student's grades</h1>
+
+    <form action="/grades/update" method="post">
+        <input type="hidden" name="id" value="<%= data.id %>">
+
+        <div>
+            <label for="term1_grade">Term 1 Grade</label>
+            <input type="number" name="term1_grade" id="term1_grade" min="0" max="100" value="<%= data.term1_grade %>">
+        </div>
+        <br>
+
+        <div>
+            <label for="term2_grade">Term 2 Grade</label>
+            <input type="number" name="term2_grade" id="term2_grade" min="0" max="100" value="<%= data.term2_grade %>">
+        </div>
+        <br>
+
+        <div>
+            <label for="term3_grade">Term 3 Grade</label>
+            <input type="number" name="term3_grade" id="term3_grade" min="0" max="100" value="<%= data.term3_grade %>">
+        </div>
+        <br>
+
+        <button type="submit">Save changes</button>
+        <a href="/grades/list">
+            <button type="button">
+                Cancel
+            </button>
+        </a>
+    </form>
+</body>
+
+</html>

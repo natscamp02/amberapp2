@@ -12,10 +12,11 @@
 
     <h1>Students Table</h1>
 
-    <a href="/students/add">Add a student</a>
-    <br>
+    <p>
+        <a href="/students/add">Add a student</a>
+    </p>
 
-    <table>
+    <table border="1" cellpadding="10">
         <thead>
             <tr>
                 <th>Student ID</th>
@@ -41,8 +42,13 @@
                         <%= student.class %>
                     </td>
                     <td>
-                        <a href="/students/edit/<%= student.id %>">Edit</a>
-                        <a href="/students/delete/<%= student.id %>">Delete</a>
+                        <button>
+                            <a href="/students/edit/<%= student.id %>">Edit</a>
+                        </button>
+
+                        <button>
+                            <a href="/students/delete/<%= student.id %>">Delete</a>
+                        </button>
                     </td>
                 </tr>
                 <% }) %>
